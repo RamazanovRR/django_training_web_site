@@ -5,7 +5,28 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Новая страница</h1>
-<h1>{{ text }}</h1>
+
+{% if object_list %}
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Дата</th>
+        <th>Имя</th>
+        <th>Телефон</th>
+    </tr>
+   {% for obj in object_list %}
+     <tr>
+        <th>{{ obj.id }}</th>
+        <th>{{ obj.order_dr }}</th>
+        <th>{{ obj.order_name }}</th>
+        <th>{{ obj.order_phone }}</th>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+Нет данных в таблице Заказов
+{% endif %}
 </body>
 </html>
