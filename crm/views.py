@@ -4,6 +4,7 @@ from .forms import OrderForm
 from cms.models import CmsSlider
 from price.models import PriceCard
 from price.models import PriceTable
+from telegrambot.sendMessage import setTelegram
 
 # Create your views here.
 def first_page(request):
@@ -28,6 +29,7 @@ def thanks_page(request):
     phone = request.POST['phone']
     element = Order(order_name = name, order_phone = phone)
     element.save()
-    return render(request, './thanks_page.html', {
+    setTelegram(tg_name = name, tg_phone = phone)
+    return render(request, './thanks.html', {
         'name': name,
     })

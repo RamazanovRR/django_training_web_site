@@ -11,7 +11,7 @@ class CmsSlider(models.Model):
     def __str__(self):
         return self.cms_title
 
-# переименовываем название таблицы и объекта
+    # переименовываем название таблицы и объекта
     class Meta:
         verbose_name = 'Слайд'
         verbose_name_plural = 'Слайды'
