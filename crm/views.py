@@ -12,12 +12,14 @@ def first_page(request):
     pc_2 = PriceCard.objects.get(pk=2)
     pc_3 = PriceCard.objects.get(pk=3)
     pt_list = PriceTable.objects.all()
+    form = OrderForm()
     obj_dictionary = {
         'slider_list': slider_list,
         'pc_1': pc_1,
         'pc_2': pc_2,
         'pc_3': pc_3,
-        'pt_list': pt_list
+        'pt_list': pt_list,
+        'form': form
     }
     return render(request, './index.html', obj_dictionary)
 
@@ -28,5 +30,4 @@ def thanks_page(request):
     element.save()
     return render(request, './thanks_page.html', {
         'name': name,
-        'phone': phone
     })
